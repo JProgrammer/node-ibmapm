@@ -1,3 +1,8 @@
+// Copyright IBM Corp. 2017. All Rights Reserved.
+// Node module: ibmapm
+// This file is licensed under the Apache License 2.0.
+// License text available at https://opensource.org/licenses/Apache-2.0
+
 var log4js = require('log4js');
 var properties = require('properties');
 var fs = require('fs');
