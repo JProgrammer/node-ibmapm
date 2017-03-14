@@ -1,0 +1,7 @@
+{
+        "ingressURL" : "http://9.123.102.111:80",
+        "tenantID" : "6defb2b3-4e44-463b-9731-09c64e7fdb67",
+        "metrics": "metric",
+        "AAR": "aar/middleware",
+        "ADR": "adr/middleware"
+}
