@@ -1,7 +1,7 @@
 {
   "name": "ibmapm",
   "main": "./index.js",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "readme": "Node.js Data Collector",
   "description": "Node.js data collector for IBM BAM",
   "dependencies": {
@@ -26,10 +26,17 @@
     "test": "mocha -t 10000 -R xunit >testResult.xml"
   },
   "license": "Apache-2.0",
-  "bugs": {"email":"yuecchen@cn.ibm.com"},
+  "bugs": {
+    "email":"yuecchen@cn.ibm.com",
+    "url":"https://github.com/IBM-APM/node-ibmapm/issues"
+  },
   "author":{
     "name": "Yue Chen",
     "email": "yuecchen@cn.ibm.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:IBM-APM/node-ibmapm.git"
   },
   "contributors":[
     {
@@ -37,8 +44,12 @@
       "email":"songhj@cn.ibm.com"
      },
     {
-      "name": "Ravi",
+      "name": "Ravi Gadekarla",
       "email":"rgadekar@us.ibm.com"
+    },
+    {
+      "name": "Chi Yang Li",
+      "email": "bjcyli@cn.ibm.com"
     }
   ],
   "keywords": [
