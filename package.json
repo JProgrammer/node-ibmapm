@@ -1,7 +1,7 @@
 {
   "name": "ibmapm",
   "main": "./index.js",
-  "version": "0.1.17",
+  "version": "1.0.0",
   "readme": "Node.js Data Collector",
   "description": "Node.js data collector for IBM BAM",
   "dependencies": {
@@ -17,13 +17,16 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.14.1",
+    "eslint-config-strongloop": "^2.1.0",
     "mocha": "^2.5.3",
     "should": "^9.0.0",
     "should-http": "0.0.4",
     "unexpected": "^10.13.3"
   },
   "scripts": {
-    "test": "mocha -t 10000 -R xunit >testResult.xml"
+    "pretest": "eslint .",
+    "test": "mocha lib/test/testRestClient.js -t 10000 -R xunit"
   },
   "license": "Apache-2.0",
   "bugs": {

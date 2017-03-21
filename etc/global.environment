@@ -5,4 +5,4 @@ APM_KEYFILE_PSWD=@{APM_SERVER_KEYFILE_PASSWORD}
 # By default, APM_SNI=default.server.
 # For SaaS please assign it as the hostname of GATEWAY_URL. 
 # For onPremise, please assign it as your keyfile's Owner/CN=, if there is *, please replace it in your own case.
-APM_SNI=@{APM_SERVER_SNI}
+#APM_SNI=@{APM_SERVER_SNI}
