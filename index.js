@@ -17,13 +17,16 @@ if (!process.env.KNJ_LOG_TO_FILE) {
 }
 
 var logger = log4js.getLogger('knj_log');
-var loglevel = process.env.KNJ_LOG_LEVEL;
+var loglevel = process.env.KNJ_LOG_LEVEL ? process.env.KNJ_LOG_LEVEL.toUpperCase() : undefined;
 if (loglevel &&
-        (loglevel === 'off' || loglevel === 'error' || loglevel === 'info' ||
-                loglevel === 'debug' || loglevel === 'all')) {
-    logger.setLevel(process.env.KNJ_LOG_LEVEL.toUpperCase());
+        (loglevel === 'OFF' || loglevel === 'ERROR' || loglevel === 'INFO' ||
+                loglevel === 'DEBUG' || loglevel === 'ALL')) {
+    logger.setLevel(loglevel);
+    logger.info('KNJ_LOG_LEVEL is set to', loglevel);
 } else {
     logger.setLevel('INFO');
+    logger.info('KNJ_LOG_LEVEL is not set or not set correctly through environment variables.');
+    logger.info('The program set default log level to INFO.');
 }
 
 //    initialize log end
@@ -32,31 +35,38 @@ if (loglevel &&
 var configObj;
 if (!process.env.MONITORING_SERVER_TYPE) {
     try {
-        var configString = fs.readFileSync(path.join(__dirname, '/etc/config.properties'));
+        var configString = fs.readFileSync(path.join(__dirname,
+            '/etc/config.properties'));
 
         configObj = properties.parse(configString.toString(),
             {
                 separators: '=',
                 comments: [';', '@', '#']
-            });
+            }
+        );
         process.env.MONITORING_SERVER_TYPE = configObj.MONITORING_SERVER_TYPE;
     } catch (e) {
-        logger.error('Failed to read etc/config.properties, use default MONITORING_SERVER_TYPE: BAM');
+        logger.error('Failed to read etc/config.properties');
+        logger.error('Use default MONITORING_SERVER_TYPE: BAM');
         logger.info(e);
         process.env.MONITORING_SERVER_TYPE = 'BAM';
     }
 }
 
-if (!process.env.MONITORING_SERVER_URL && configObj && configObj.MONITORING_SERVER_URL) {
+if (!process.env.MONITORING_SERVER_URL
+    && configObj && configObj.MONITORING_SERVER_URL) {
     process.env.MONITORING_SERVER_URL = configObj.MONITORING_SERVER_URL;
 }
-if (!process.env.MONITORING_APPLICATION_NAME && configObj && configObj.MONITORING_APPLICATION_NAME) {
+if (!process.env.MONITORING_APPLICATION_NAME
+    && configObj && configObj.MONITORING_APPLICATION_NAME) {
     process.env.MONITORING_APPLICATION_NAME = configObj.MONITORING_APPLICATION_NAME;
 }
-if (!process.env.MONITORING_SECURITY_URL && configObj && configObj.MONITORING_SECURITY_URL) {
+if (!process.env.MONITORING_SECURITY_URL
+    && configObj && configObj.MONITORING_SECURITY_URL) {
     process.env.MONITORING_SECURITY_URL = configObj.MONITORING_SECURITY_URL;
 }
-if (!process.env.MONITORING_SERVER_NAME && configObj && configObj.MONITORING_SERVER_NAME) {
+if (!process.env.MONITORING_SERVER_NAME
+    && configObj && configObj.MONITORING_SERVER_NAME) {
     process.env.MONITORING_SERVER_NAME = configObj.MONITORING_SERVER_NAME;
 }
 
@@ -64,25 +74,45 @@ if (process.env.MONITORING_SECURITY_URL) {
     process.env.APM_KEYFILE_URL = process.env.MONITORING_SECURITY_URL;
 }
 
-//    shared configurations:
+logger.info('==========Inital parameters setting==========');
+logger.info('Monitoring server type: ', process.env.MONITORING_SERVER_TYPE);
+logger.info('Monitoring server url: ', process.env.MONITORING_SERVER_URL);
+logger.info('Monitoring application name:', process.env.MONITORING_APPLICATION_NAME);
+logger.info('Monitoring security url:', process.env.MONITORING_SECURITY_URL);
+logger.info('Monitoring server SNI(Server Name Indication):', process.env.MONITORING_SERVER_NAME);
+logger.info('==========End of inital parameters setting==========');
 
-if (typeof(process.env.KNJ_ENABLE_TT) === 'undefined' && configObj && configObj.KNJ_ENABLE_TT) {
+//    shared configurations:
+if (typeof (process.env.KNJ_ENABLE_TT) === 'undefined' && configObj && configObj.KNJ_ENABLE_TT) {
     process.env.KNJ_ENABLE_TT = configObj.KNJ_ENABLE_TT;
 }
 
 if (!process.env.KNJ_LOG_LEVEL && configObj && configObj.KNJ_LOG_LEVEL) {
     process.env.KNJ_LOG_LEVEL = configObj.KNJ_LOG_LEVEL;
-}
 
-if (typeof(process.env.KNJ_SAMPLING) === 'undefined' && configObj && configObj.KNJ_SAMPLING) {
+    loglevel = process.env.KNJ_LOG_LEVEL ? process.env.KNJ_LOG_LEVEL.toUpperCase() : undefined;
+    if (loglevel &&
+            (loglevel === 'OFF' || loglevel === 'ERROR' || loglevel === 'INFO' ||
+                    loglevel === 'DEBUG' || loglevel === 'ALL')) {
+        logger.setLevel(loglevel);
+        logger.info('KNJ_LOG_LEVEL is set to', loglevel);
+    } else {
+        logger.setLevel('INFO');
+        logger.info('KNJ_LOG_LEVEL is not set or not set correctly through config files.');
+        logger.info('The program set default log level to INFO.');
+    }
+}
+if (typeof (process.env.KNJ_SAMPLING) === 'undefined' && configObj && configObj.KNJ_SAMPLING) {
     process.env.KNJ_SAMPLING = configObj.KNJ_SAMPLING;
 }
 
-if (typeof(process.env.KNJ_MIN_CLOCK_TRACE) === 'undefined' && configObj && configObj.KNJ_MIN_CLOCK_TRACE) {
+if (typeof (process.env.KNJ_MIN_CLOCK_TRACE) === 'undefined'
+    && configObj && configObj.KNJ_MIN_CLOCK_TRACE) {
     process.env.KNJ_MIN_CLOCK_TRACE = configObj.KNJ_MIN_CLOCK_TRACE;
 }
 
-if (typeof(process.env.KNJ_MIN_CLOCK_STACK) === 'undefined' && configObj && configObj.KNJ_MIN_CLOCK_STACK) {
+if (typeof (process.env.KNJ_MIN_CLOCK_STACK) === 'undefined'
+    && configObj && configObj.KNJ_MIN_CLOCK_STACK) {
     process.env.KNJ_MIN_CLOCK_STACK = configObj.KNJ_MIN_CLOCK_STACK;
 }
 
