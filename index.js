@@ -82,7 +82,9 @@ logger.info('Monitoring security url:', process.env.MONITORING_SECURITY_URL);
 logger.info('Monitoring server SNI(Server Name Indication):', process.env.MONITORING_SERVER_NAME);
 logger.info('==========End of inital parameters setting==========');
 
-//    shared configurations:
+// initialize different code path - BI/BAM/Agent end
+
+// initialize shared configurations:
 if (typeof (process.env.KNJ_ENABLE_TT) === 'undefined' && configObj && configObj.KNJ_ENABLE_TT) {
     process.env.KNJ_ENABLE_TT = configObj.KNJ_ENABLE_TT;
 }
@@ -115,8 +117,53 @@ if (typeof (process.env.KNJ_MIN_CLOCK_STACK) === 'undefined'
     && configObj && configObj.KNJ_MIN_CLOCK_STACK) {
     process.env.KNJ_MIN_CLOCK_STACK = configObj.KNJ_MIN_CLOCK_STACK;
 }
+// initialize shared configurations end
 
-// initialize different code path - BI/BAM/Agent end
+// initialize BAM configuration
+var bamConfObj;
+if (process.env.MONITORING_SERVER_TYPE === 'BAM') {
+    try {
+        var bamConfString = fs.readFileSync(path.join(__dirname,
+            '/etc/bam.properties'));
+
+        bamConfObj = properties.parse(bamConfString.toString(),
+            {
+                separators: '=',
+                comments: [';', '@', '#']
+            }
+        );
+    } catch (e) {
+        logger.error('Failed to read etc/bam.properties.');
+        logger.error('Use default BAM configuration.');
+        logger.info(e);
+    }
+
+    if (bamConfObj) {
+        global.KNJ_AAR_BATCH_COUNT = process.env.KNJ_AAR_BATCH_COUNT ||
+            bamConfObj.KNJ_AAR_BATCH_COUNT;
+        global.KNJ_AAR_BATCH_FREQ = process.env.KNJ_AAR_BATCH_FREQ ||
+            bamConfObj.KNJ_AAR_BATCH_FREQ;
+        global.KNJ_ADR_BATCH_COUNT = process.env.KNJ_ADR_BATCH_COUNT ||
+            bamConfObj.KNJ_ADR_BATCH_COUNT;
+        global.KNJ_ADR_BATCH_FREQ = process.env.KNJ_ADR_BATCH_FREQ ||
+            bamConfObj.KNJ_ADR_BATCH_FREQ;
+    }
+    global.KNJ_AAR_BATCH_COUNT = global.KNJ_AAR_BATCH_COUNT || 100;
+    global.KNJ_AAR_BATCH_FREQ = global.KNJ_AAR_BATCH_FREQ || 60;
+    global.KNJ_ADR_BATCH_COUNT = global.KNJ_ADR_BATCH_COUNT || 100;
+    global.KNJ_ADR_BATCH_FREQ = global.KNJ_ADR_BATCH_FREQ || 60;
+
+    logger.info('==========Inital BAM parameters setting==========');
+    logger.info('KNJ_AAR_BATCH_COUNT', global.KNJ_AAR_BATCH_COUNT);
+    logger.info('KNJ_AAR_BATCH_FREQ', global.KNJ_AAR_BATCH_FREQ);
+    logger.info('KNJ_AAR_BATCH_COUNT', global.KNJ_ADR_BATCH_COUNT);
+    logger.info('KNJ_AAR_BATCH_FREQ', global.KNJ_ADR_BATCH_FREQ);
+    logger.info('==========End of inital BAM parameters setting==========');
+
+}
+
+// initialize BAM configuration end
+
 
 var plugin = require('./lib/plugin.js').monitoringPlugin;
 switch (process.env.MONITORING_SERVER_TYPE) {
