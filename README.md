@@ -1,6 +1,6 @@
 # Node.js Data Collector for IBM Application Performance Management (APM) and IBM Bluemix Application Monitoring (BAM)
 
-This Node.js data collector is used to monitor local and Bluemix Node.js applications. By configuring the data collector, you can view the health, availability, and performance of your Node.js application.   
+The Node.js data collector helps you manage the performance and availability of your Node.js applications that are deployed on premises or in a cloud environment. By using the data collector, you are provided with visibility, control, and automation of your applications, ensuring optimal performance and efficient use of resources. You can reduce and prevent application crashes and slowdowns around the clock, as the data collector assists you in detecting, diagnosing and isolating performance issues.   
 
 You need an APM SaaS V8.1.3.2 account to use the data collector package.  
 
