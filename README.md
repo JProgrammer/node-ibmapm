@@ -13,7 +13,7 @@ Complete the following configuration tasks according to your needs.
 
 To configure your Node.js data collector for your Bluemix application, and connect the data collector to the APM server, complete the following steps:  
  
- 1-In the `package.json` file of your application, add `"ibmapm":"0.1.*"` to the `dependencies` section to reference this package.  
+ 1-In the `package.json` file of your application, add `"ibmapm":"^1.0.0"` to the `dependencies` section to reference this package.  
 
  2-In the beginning of your application main file, add `require('ibmapm');`. For example, if you start your application by running the `node app.js` command, app.js is the main file of your application.  
 
@@ -72,7 +72,7 @@ To configure your Node.js data collector for your local application, and connect
 
 To configure your Node.js data collector for your Bluemix application, and connect the data collector to the BAM server, complete the following steps:  
 
- 1-In the `package.json` file of your application, add `"ibmapm":"0.1.*"` to the `dependencies` section to reference this package.  
+ 1-In the `package.json` file of your application, add `"ibmapm":"^1.0.0"` to the `dependencies` section to reference this package.  
     
  2-In the beginning of your application main file, add `require('ibmapm');`. For example, if you start your application by running the `node app.js` command, app.js is the main file of your application.  
 
