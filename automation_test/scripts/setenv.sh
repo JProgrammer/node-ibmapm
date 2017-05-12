@@ -1,0 +1,16 @@
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre
+export PATH=$JAVA_HOME/bin:$PATH
+export GSA_ACCOUNT=songhj
+export GSA_PASS=zhu44jie
+export NODEJS_DC_BUILD=http://rtpgsa.ibm.com/projects/i/itm_db2_agent/nodejs/cloudnative/NPM/ibmapm.tgz
+export NODEJS_DC_BUILD_UT=http://rtpgsa.ibm.com/projects/i/itm_db2_agent/nodejs/cloudnative/NPM/UT/ibmapm.tgz
+export GSA_HOSTNAME=rtpgsa.ibm.com
+export NODEJS_GSA_PUBLISH_DIR=/gsa/rtpgsa/projects/i/itm_db2_agent/nodejs/cloudnative/NPM
+export INGRESS_URL=http://9.123.102.111:80/1.0/monitoring/data
+export TENANT_ID=6defb2b3-4e44-463b-9731-09c64e7fdb67
+export KNJ_ENABLE_TT=true
+export KNJ_ENABLE_DEEPDIVE=true
+export KNJ_ENABLE_METHODTRACE=true
+export BLUEMIX_URL=https://api.stage1.ng.bluemix.net
+export BLUEMIX_ACCOUNT=zjingjbj@cn.ibm.com
+export BLUEMIX_PASS=sun88kong

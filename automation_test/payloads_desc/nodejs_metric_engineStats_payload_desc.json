@@ -1,0 +1,151 @@
+{
+  "DocName" : "NodeJS metric(engineStats) payload description",
+  "DocVersion" : "1.0",
+  "DocDesc" : [
+  	{
+  		"FieldName":"resourceID",
+  		"FieldType":"STRING",
+  		"Range": {
+  			"Length":32
+  		}
+  	},
+  	{
+  		"FieldName":"timestamp",
+  		"FieldType":"ISOTIME",
+  		"Range": {
+  			"minValue":"2011-11-16T03:54:31.720Z"
+  		}
+  	},
+    {
+      "FieldName" : "dimensions",
+      "FieldType" : "JSONOBJECT",
+      "Content" : [
+        {
+          "Values" : [
+            "engineStats"
+          ],
+          "FieldName" : "name",
+          "FieldType" : "STRING"
+        }
+      ]
+    },
+    {
+      "FieldName" : "metrics",
+      "FieldType" : "JSONOBJECT",
+      "Content" : [
+      	{
+        	"FieldName":"EVENTLOOP_LATENCY_MIN",
+        	"FieldType":"FLOAT",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"MEM_RSS",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"LOOP_AVERAGE",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"M_COUNT",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"MEM_ALL",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"LOOP_MAXIMUM",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"HEAP_USAGE",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"UPTIME",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"CPU_P",
+        	"FieldType":"FLOAT",
+        	"Range": {
+        		"minValue":0.0
+        	}
+        },
+        {
+        	"FieldName":"EVENTLOOP_LATENCY_MAX",
+        	"FieldType":"FLOAT",
+        	"Range": {
+        		"minValue":0.0
+        	}
+        },
+        {
+        	"FieldName":"LOOP_COUNT",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"LOOP_MINIMUM",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"HEAP_SIZE",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"DURATION",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"S_COUNT",
+        	"FieldType":"NUMBER",
+        	"Range": {
+        		"minValue":0
+        	}
+        },
+        {
+        	"FieldName":"EVENTLOOP_LATENCY_AVG",
+        	"FieldType":"FLOAT",
+        	"Range": {
+        		"minValue":0
+        	}
+        }
+      ]
+    }
+  ]
+}

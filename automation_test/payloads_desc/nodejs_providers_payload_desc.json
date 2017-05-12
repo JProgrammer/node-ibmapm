@@ -1,0 +1,25 @@
+{
+  "DocName" : "NodeJS provider payload description",
+  "DocVersion" : "1.0",
+  "DocDesc" : [
+  	{
+  		"FieldName":"resourceID",
+  		"FieldType":"STRING",
+  		"Range": {
+  			"Length":32
+  		}
+  	},
+  	{
+      "FieldName" : "entityTypes",
+      "FieldType" : "JSONARRAY",
+      "Content" :{
+          "FieldType" : "STRING",
+          "MinValue":1,
+          "MaxValue":1,
+          "Values" : [
+            "datacollector"
+          ]
+      }
+    }
+  ]
+}

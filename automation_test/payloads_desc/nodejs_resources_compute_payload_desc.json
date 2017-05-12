@@ -1,0 +1,25 @@
+{
+  "DocName" : "NodeJS resource(compute) payload description",
+  "DocVersion" : "1.0",
+  "DocDesc" : [
+  	{
+  		"FieldName":"uniqueId",
+  		"FieldType":"STRING",
+  		"Range": {
+  			"Length":32
+  		}
+  	},
+  	{
+      "FieldName" : "entityTypes",
+      "FieldType" : "JSONARRAY",
+      "Content" :{
+          "FieldType" : "STRING",
+          "MinCount":1,
+          "MaxCount":1,
+          "Values" : [
+            "compute"
+          ]
+      }
+    }
+  ]
+}

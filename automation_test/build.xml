@@ -1,0 +1,67 @@
+<project basedir="." name="automation test">
+    <property name="test.target.dir" value="test/test.target"/>
+    <property name="test.classes.dir" value="${test.target.dir}/classes"/>
+    <property name="test.scripts.dir" value="scripts"/>
+    <property name="test.output.dir" value="${test.target.dir}/output"/>
+    <property name="test.target.scripts.dir" value="${test.output.dir}/scripts"/>
+    <property name="test.tar.gz.dir" value="${test.target.dir}"/>
+    <property name="test.3rd.lib.dir" value="lib"/>
+    <property name="test.output.jarname" value="cdc_liberty_automation.jar"/>
+
+    <path id="test.lib-classpath">
+        <fileset dir="${test.3rd.lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <presetdef name="test.clean">
+        <delete dir="${test.target.dir}"/>
+    </presetdef>
+
+	<presetdef name = "test.jar.prepare">
+        <pathconvert property="test.mf.classpath" pathsep=" ">
+            <mapper>
+                <chainedmapper>
+                    <flattenmapper/>
+                    <globmapper from="*" to="lib/*"/>
+                </chainedmapper>
+            </mapper>
+            <path refid="test.lib-classpath"/>
+         </pathconvert>
+	</presetdef>
+	
+    <presetdef name="test.jar">
+        <jar destfile="${test.output.dir}/${test.output.jarname}" basedir="${test.classes.dir}">
+            <manifest>
+                <attribute name="Class-Path" value="${test.mf.classpath}"/>
+            </manifest>
+        </jar>
+    </presetdef>
+
+	<presetdef name ="test.copy1">
+		<copy todir="${test.target.scripts.dir}">
+    		<fileset dir="${test.scripts.dir}"/>
+		</copy>
+	</presetdef>
+		
+	<presetdef name="test.copy2">
+        <copy todir="${test.output.dir}">
+                <fileset dir="./">
+                        <include name="testng.xml"/>
+                </fileset>
+        </copy>
+	</presetdef>
+	
+    <presetdef name="test.tar">
+
+        <exec executable="tar">
+                <arg value = "cvf"/>
+                <arg value = "${test.tar.gz.dir}/cdc_liberty_automation.tar"/>
+                <arg value = "${test.output.dir}"/>
+        </exec>
+    </presetdef>
+
+	<presetdef name="test.gzip">
+        <exec executable="gzip">
+                <arg value = "${test.tar.gz.dir}/cdc_liberty_automation.tar"/>
+        </exec>
+    </presetdef>
+</project>

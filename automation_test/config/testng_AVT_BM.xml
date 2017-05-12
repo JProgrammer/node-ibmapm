@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AVT_NodeJS_DC">
+ <test verbose="2" preserve-order="true" name="Bluemix NodeJS DC check data from REST query">
+   		<parameter name="nodejsAppURL" value="https://nodejsdc-automation.stage1.mybluemix.net//"/>
+   		
+   		<parameter name="header1" value="X-TenantId: 739f4a7e-acae-441b-bd29-c38bfb7cf3f0"/>
+   		<parameter name="header2" value="Authorization: Basic cGk0Ym11c2VyOkluR1RwbDdkIQ=="/>
+
+   		<parameter name="metric_service_rest_url_appinfo" value="https://hcdemo.test.perfmgmt.ibm.com/1.0/metric/values?metric=RESP_TIME&amp;param_time=start_time_relative=1h"/>
+   		<parameter name="metric_rest_query_file_appinfo" value="/tmp/rest.metric.appinfo.json"/>
+   		<parameter name="metric_payload_desc_filename_appinfo" value="rest_nodejs_metric_payload_desc_appinfo.json"/>
+
+   		<parameter name="metric_service_rest_url_nodeeng" value="https://hcdemo.test.perfmgmt.ibm.com/1.0/metric/values?metric=CPU_P&amp;param_time=start_time_relative=1h"/>
+   		<parameter name="metric_rest_query_file_nodeeng" value="/tmp/rest.metric.nodeeng.json"/>
+   		<parameter name="metric_payload_desc_filename_nodeeng" value="rest_nodejs_metric_payload_desc_nodeeng.json"/>
+
+   		<parameter name="metric_service_rest_url_computeinfo" value="https://hcdemo.test.perfmgmt.ibm.com/1.0/metric/values?metric=os_sysMemAll&amp;param_time=start_time_relative=1h"/>
+   		<parameter name="metric_rest_query_file_computeinfo" value="/tmp/rest.metric.computeinfo.json"/>
+   		<parameter name="metric_payload_desc_filename_computeinfo" value="rest_nodejs_metric_payload_desc_computeinfo.json"/>
+
+   		<parameter name="aar_service_rest_url" value="https://hcdemo.test.perfmgmt.ibm.com/1.0/transaction/application_activity_records"/>
+   		<parameter name="aar_rest_query_file" value="/tmp/rest.aar.middleware.json"/>
+   		<parameter name="aar_desc_filename" value="nodejs_aar_payload_desc.json"/>
+   		
+   		<parameter name="adr_service_rest_url" value="https://hcdemo.test.perfmgmt.ibm.com/1.0/diagnostics/application_diagnostic_records"/>
+   		<parameter name="adr_rest_query_file" value="/tmp/rest.adr.middleware.json"/>
+        <parameter name="adr_desc_filename" value="nodejs_adr_payload_desc.json"/>
+
+        <classes>
+            <class name="automation.test.NodeJS_AVT_VerifyRESTResponse"></class>
+        </classes>
+    </test>
+</suite>
