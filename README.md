@@ -22,7 +22,7 @@ To configure your Node.js data collector for your Bluemix application, and conne
     env: 
         MONITORING_SERVER_TYPE: BI
         APM_BM_GATEWAY_URL: https://<server ip or hostname>:443
-        APM_KEYFILE_PSWD: <passw0rd>
+        APM_KEYFILE_PSWD: <base 64 encrypted password>
         APM_KEYFILE_URL: http://<your key file server>/<keyfile.p12>
 ```
 
@@ -57,7 +57,7 @@ To configure your Node.js data collector for your local application, and connect
   ```
     APM_BM_GATEWAY_URL=https://<server ip or hostname>:443
     APM_KEYFILE=<keyfile.p12>
-    APM_KEYFILE_PSWD=<passw0rd>
+    APM_KEYFILE_PSWD=<base 64 encrypted password>
   ```
 
  5-Copy the server key file, for example, `keyfile.p12`, to the `node_modules/ibmapm/etc` directory.  
@@ -152,7 +152,7 @@ Complete one of the following tasks based on you application type:
   ```
     env: 
       - APM_BM_GATEWAY_URL: https://<server ip or hostname>:443
-      - APM_KEYFILE_PSWD: <passw0rd>
+      - APM_KEYFILE_PSWD: <base 64 encrypted password>
       - APM_KEYFILE_URL: http://<your key file server>/<keyfile.p12>
   ```
     And then from the application home directory, run the `cf push` command to repush the application.
@@ -161,7 +161,7 @@ Complete one of the following tasks based on you application type:
   ```
     APM_BM_GATEWAY_URL=https://<server ip or hostname>:443
     APM_KEYFILE=<keyfile.p12>
-    APM_KEYFILE_PSWD=<passw0rd>
+    APM_KEYFILE_PSWD=<base 64 encrypted password>
   ```
     And then restart your application.
   
@@ -179,7 +179,7 @@ This section introduces all supported variables for the Node.js data collector t
 |:---------------------------------|:--------------------------------------|:--------------|:-------------------------------------------------------|
 |APM_BM_GATEWAY_URL (required)    |"https://1.2.3.4:443" or not set       |not set        |The URL BI agent provides to collect data. If you have set the `MONITORING_SERVER_URL` in the `config.properties` file or the **Bluemix UI**, you do not need to set this variable.|
 |APM_KEYFILE (required)           |"keyfile_test.p12" or not set          |"keyfile.p12"  |The keyfile that you put in etc folder for server credentials.|
-|APM_KEYFILE_PSWD (required)       |"passw0rd" or not set                  |"ccmR0cKs!"    |The password of the keyfile.|
+|APM_KEYFILE_PSWD (required)       |"cGFzc3cwcmQ=" or not set                  |"Y2NtUjBja3Mh"    |The password of the keyfile.|
 |APM_SNI (conditional)     |"abc.ibm.com" or not set               |"default.server" |When the keyfile's Owner/CN is not default.server (not the default onPremise server keyfile), this field is **required**. Assign this environment with your target server url's hostname (or your keyfile's Owner/CN).|
 
 
