@@ -1,0 +1,68 @@
+{
+  "DocName" : "NodeJS ADR payload description",
+  "DocVersion" : "1.0",
+  "DocDesc" : [
+    {
+      "Content" : [
+        {
+          "Range" : {
+            "MinValue" : "2000-11-03T15:32:37.437Z"
+          },
+          "FieldName" : "finishTime",
+          "FieldType" : "ISOTIME"
+        },
+        {
+          "Values" : [
+            "ADR\/MIDDLEWARE\/NODEJS"
+          ],
+          "FieldName" : "documentType",
+          "FieldType" : "STRING"
+        },
+        {
+          "FieldName" : "startTime",
+          "FieldType" : "ISOTIME"
+        },
+        {
+          "FieldName" : "documentID",
+          "FieldType" : "STRING"
+        }
+      ],
+      "FieldName" : "properties",
+      "FieldType" : "JSONOBJECT"
+    },
+    {
+        "Content" : [
+        {
+          "FieldName" : "summary",
+          "FieldType" : "JSONOBJECT",
+          "Content" : [
+          {
+            "FieldName" : "responseTime",
+            "FieldType" : "ISOTIME"
+          }
+          ]
+        },
+        {
+          "FieldName" : "traceData",
+          "FieldType" : "JSONARRAY",
+          "Content" :{
+              "FieldType" : "JSONOBJECT",
+              "allowEmpty": false,
+              "Content": [
+              {
+                "FieldName" : "startTime",
+                "FieldType" : "ISOTIME"
+              },
+              {
+                "FieldName" : "finishTime",
+                "FieldType" : "ISOTIME"
+              }          
+              ]
+        }
+        }
+      ],
+      "FieldName" : "statistics",
+      "FieldType" : "JSONOBJECT"  
+    }
+  ]
+}

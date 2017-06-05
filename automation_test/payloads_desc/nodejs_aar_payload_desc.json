@@ -1,0 +1,100 @@
+{
+  "DocName" : "NodeJS AAR payload description",
+  "DocVersion" : "1.0",
+  "DocDesc" : [
+    {
+      "FieldName" : "metrics",
+      "FieldType" : "JSONOBJECT",
+      "Content" : [
+        {
+          "Range" : {
+            "MinLength" : 1
+          },
+          "FieldName" : "status",
+          "FieldType" : "STRING"
+        },
+        {
+          "FieldName" : "responseTime",
+          "FieldType" : "FLOATNUMBER",
+          "Range" : {
+            "MinValue" : 0,
+            "MaxValue" : 100000
+          }
+        }
+      ]
+    },
+    {
+      "Content" : [
+        {
+          "Range" : {
+            "Length" : 32
+          },
+          "FieldName" : "resourceID",
+          "FieldType" : "STRING"
+        },
+        {
+          "Range" : {
+            "MinValue" : "2000-11-03T15:32:37.437Z"
+          },
+          "FieldName" : "finishTime",
+          "FieldType" : "ISOTIME"
+        },
+        {
+          "Values" : [
+            "\/AAR\/MIDDLEWARE\/NODEJS"
+          ],
+          "FieldName" : "documentType",
+          "FieldType" : "STRING"
+        },
+        {
+          "FieldName" : "softwareModuleName",
+          "FieldType" : "STRING"
+        },
+        {
+          "FieldName" : "serverName",
+          "FieldType" : "STRING"
+        },
+        {
+          "FieldName" : "processID",
+          "FieldType" : "NUMBER"
+        },
+        {
+          "FieldName" : "applicationName",
+          "FieldType" : "STRING"
+        },
+        {
+          "Values" : [
+            "http:\/\/open-services.net\/ns\/crtv#NodeJS"
+          ],
+          "FieldName" : "softwareServerType",
+          "FieldType" : "STRING"
+        },
+        {
+          "FieldName" : "serverAddress",
+          "FieldType" : "STRING"
+        },
+        {
+          "Values" : [
+            "2.0"
+          ],
+          "FieldName" : "documentVersion",
+          "FieldType" : "STRING"
+        },
+        {
+          "FieldName" : "requestName",
+          "FieldType" : "STRING"
+        },
+        {
+          "FieldName" : "startTime",
+          "FieldType" : "ISOTIME"
+        },
+        {
+          "FieldName" : "documentID",
+          "FieldType" : "STRING"
+        }
+      ],
+      "FieldName" : "properties",
+      "FieldType" : "JSONOBJECT"
+    }
+  ]
+}

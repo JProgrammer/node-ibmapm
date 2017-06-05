@@ -1,0 +1,91 @@
+<project basedir="." default="test.tar" name="automation test">
+    <property name="test.target.dir" value="test.target"/>
+    <property name="test.classes.dir" value="${test.target.dir}/classes"/>
+    <property name="test.scripts.dir" value="scripts"/>
+    <property name="test.output.dir" value="${test.target.dir}/automation"/>
+    <property name="test.target.scripts.dir" value="${test.output.dir}/scripts"/>
+    <property name="test.tar.gz.dir" value="${test.target.dir}"/>
+    <property name="test.3rd.lib.dir" value="lib"/>
+    <property name="test.output.jarname" value="NodeDC_CVT_automation.jar"/>
+
+    <path id="test.lib-classpath">
+        <fileset dir="${test.3rd.lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <target name="test.clean">
+        <delete dir="${test.target.dir}"/>
+    </target>
+
+    <target name="test.compile" depends="test.clean">
+        <mkdir dir="${test.target.dir}"/>
+        <mkdir dir="${test.classes.dir}"/>
+        <javac srcdir="java/" destdir="${test.classes.dir}" classpathref="test.lib-classpath" includeantruntime="off" debug="on" debuglevel="lines,vars,source"/>
+    </target>
+
+    <target name="test.jar" depends="test.compile">
+        <mkdir dir="${test.output.dir}"/>
+
+        <pathconvert property="test.mf.classpath" pathsep=" ">
+            <mapper>
+                <chainedmapper>
+                    <flattenmapper/>
+                    <globmapper from="*" to="lib/*"/>
+                </chainedmapper>
+            </mapper>
+            <path refid="test.lib-classpath"/>
+         </pathconvert>
+
+    	<mkdir dir="${test.output.dir}/lib"/>
+        <jar destfile="${test.output.dir}/lib/${test.output.jarname}" basedir="${test.classes.dir}">
+            <manifest>
+                <attribute name="Class-Path" value="${test.mf.classpath}"/>
+            </manifest>
+        	
+            <zipfileset excludes="META-INF/*.SF" src="${test.3rd.lib.dir}/testng-6.9.14-SNAPSHOT.jar" />  
+            <zipfileset excludes="META-INF/*.SF" src="${test.3rd.lib.dir}/JSON4J.jar" />  
+        </jar>
+    </target>
+
+	<target name="test.output" depends="test.jar">
+        <mkdir dir="${test.target.scripts.dir}"/>
+        <copy todir="${test.target.scripts.dir}">
+                <fileset dir="${test.scripts.dir}"/>
+        </copy>
+    	
+    	<mkdir dir="${test.output.dir}/config"/>
+        <copy todir="${test.output.dir}/config">
+                <fileset dir="config"/>
+        </copy>
+
+    	<mkdir dir="${test.output.dir}/payloads_desc"/>
+    	<copy todir="${test.output.dir}/payloads_desc">
+    		<fileset dir="payloads_desc"/>
+    	</copy>
+    	
+    	<copy todir="${test.output.dir}/lib">
+    		<fileset dir="lib">
+    			<include name="jcommander-1.48.jar"/>
+    			<include name="testng-6.9.14-SNAPSHOT.jar"/>
+    		</fileset>
+    	</copy>
+		
+		<mkdir dir="${test.output.dir}/nodejsApp"/>
+		<copy todir="${test.output.dir}/nodejsApp">
+			<fileset dir="nodejsApp">
+			    <include name="simpleApp.zip"/>
+			</fileset>
+		</copy>
+	</target>
+		
+    <target name="test.tar" depends="test.output">
+        <exec executable="tar">
+                <arg value = "cvf"/>
+                <arg value = "${test.tar.gz.dir}/NodeDC_CVT_automation.tar"/>
+                <arg value = "${test.output.dir}"/>
+        </exec>
+
+        <exec executable="gzip">
+                <arg value = "${test.tar.gz.dir}/NodeDC_CVT_automation.tar"/>
+        </exec>
+    </target>
+</project>

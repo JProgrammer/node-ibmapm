@@ -1,0 +1,26 @@
+{
+  "DocName" : "NodeJS resource(npm) payload description",
+  "DocVersion" : "1.0",
+  "DocDesc" : [
+  	{
+  		"FieldName":"uniqueId",
+  		"FieldType":"STRING",
+  		"Range": {
+  			"Length":32
+  		}
+  	},
+  	{
+      "FieldName" : "entityTypes",
+      "FieldType" : "JSONARRAY",
+      "MinCount":1,
+      "MaxCount":1,
+      "Content" :{
+          "FieldType" : "STRING",
+          "allowEmpty": false,
+          "Values" : [
+            "npm"
+          ]
+      }
+    }
+  ]
+}

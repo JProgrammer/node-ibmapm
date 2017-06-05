@@ -1,0 +1,41 @@
+{
+  "DocName" : "REST query data for NodeJS metric(appinfo) RESP_TIME description",
+  "DocVersion" : "1.0",
+  "DocDesc" : [
+    {
+      "FieldName" : "metricData",
+      "FieldType" : "JSONARRAY",
+      "Content" : {
+        "FieldType" : "JSONOBJECT",
+        "allowEmpty": false,
+        "Content": [
+        {
+          "FieldName" : "resourceID",
+          "FieldType" : "STRING"
+        },
+        {
+          "FieldName" : "metric",
+          "FieldType" : "STRING",
+		  "Values" : [
+            "RESP_TIME"
+          ]
+        },
+        {
+          "FieldName" : "series",
+          "FieldType" : "JSONARRAY",
+		  "Content": {
+			"FieldType" : "JSONOBJECT",
+            "allowEmpty": false,
+            "Content": [
+            {
+              "FieldName" : "timestamp",
+              "FieldType" : "NUMBER"
+            }
+            ]			
+		  }
+        }			  
+        ]
+      }
+    }
+  ]
+}

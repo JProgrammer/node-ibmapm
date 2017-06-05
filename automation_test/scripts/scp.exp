@@ -1,0 +1,21 @@
+#!/usr/bin/expect
+
+set timeout 20
+
+set source [lindex $argv 0]
+set dest [lindex $argv 1]
+set password [lindex $argv 2]
+
+eval spawn scp  $source $dest
+expect {
+  "password:" {
+    send "$password\r"
+  } "yes/no)?" {
+    send "yes\r"
+    set timeout -1
+  } -re . {
+    exp_continue
+  } 
+}
+
+interact

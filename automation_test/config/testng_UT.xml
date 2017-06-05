@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CVT_NodeJS_DC">
+ <test verbose="2" preserve-order="true" name="Liberty DC Configuration and check data from kafka">
+   		<parameter name="kafka_node" value="9.123.102.111"/>
+   		<parameter name="kafka_node_username" value="root"/>
+   		<parameter name="kafka_node_password" value="zhu88jie"/>
+   		<parameter name="ingress_url" value="http://9.123.102.111:80"/>
+   		<parameter name="dc_node_ip" value="9.37.200.75"/>
+   		<parameter name="dc_node_user" value="root"/>
+   		<parameter name="dc_node_pass" value="us3rpa88"/>
+   		<parameter name="nodejs_app_path" value="/root/automation_nodejs/nodejs_app"/>
+   		<parameter name="enable_deepdive" value="true"/>
+   		<parameter name="enable_methodtrace" value="true"/>
+   		<parameter name="enable_tt" value="true"/>
+   		
+   		<parameter name="nodejsAppIP" value="9.37.200.75"/>
+   		<parameter name="nodejsAppPort" value="3000"/>
+   		<parameter name="resource_payload_properties" value="resource_payload_properties.json"/>
+   		<parameter name="provider_payload_properties" value="provider_payload_properties.json"/>
+
+   		<parameter name="metric_payload_appinfo_desc_filename" value="nodejs_metric_appinfo_payload_desc.json"/>
+   		<parameter name="resource_type_metric_appinfo" value="application"/>
+
+   		<parameter name="metric_payload_engineStats_desc_filename" value="nodejs_metric_engineStats_payload_desc.json"/>
+   		<parameter name="resource_type_metric_engineStats" value="nodeengine"/>
+   		
+   		<parameter name="aar_payload_verification_desc_filename" value="nodejs_aar_payload_desc.json"/>
+   		<parameter name="resource_type_aar" value="NodeJsApplication"/>
+
+   		<parameter name="adr_payload_verification_desc_filename" value="nodejs_adr_payload_desc.json"/>
+   		<parameter name="resource_type_adr" value="ADRDummyType"/>
+   		   		
+   		<parameter name="resource_compute_payload_verification_desc_filename" value="nodejs_resources_compute_payload_desc.json"/>
+   		<parameter name="resource_type_compute" value="compute"/>
+   		
+   		<parameter name="resource_nodeapplication_payload_verification_desc_filename" value="nodejs_resources_nodeapplication_payload_desc.json"/>
+   		<parameter name="resource_type_nodeapplication" value="NodeJsApplication"/>
+   		
+   		<parameter name="resource_npm_payload_verification_desc_filename" value="nodejs_resources_npm_payload_desc.json"/>
+   		<parameter name="resource_type_npm" value="npm"/>
+   		
+   		<parameter name="resource_nodeengine_payload_verification_desc_filename" value="nodejs_resources_nodeengine_payload_desc.json"/>
+   		<parameter name="resource_type_nodeengine" value="nodeengine"/>
+   		
+   		<parameter name="provider_payload_verification_desc_filename" value="nodejs_providers_payload_desc.json"/>
+   		<parameter name="resource_type_provider" value="provider"/>
+   		
+        <classes>
+            <class name="automation.test.NodeJS_BAM_CVT_VerifyKafkaPayload"></class>
+        </classes>
+    </test>
+</suite>

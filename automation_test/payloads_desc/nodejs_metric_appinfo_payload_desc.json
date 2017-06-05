@@ -1,0 +1,61 @@
+{
+  "DocName" : "NodeJS metric(appinfo) payload description",
+  "DocVersion" : "1.0",
+  "DocDesc" : [
+  	{
+  		"FieldName":"resourceID",
+  		"FieldType":"STRING",
+  		"Range": {
+  			"Length":32
+  		}
+  	},
+  	{
+  		"FieldName":"timestamp",
+  		"FieldType":"ISOTIME",
+  		"Range": {
+  			"minValue":"2011-11-16T03:54:31.720Z"
+  		}
+  	},
+    {
+      "FieldName" : "dimensions",
+      "FieldType" : "JSONOBJECT",
+      "Content" : [
+        {
+          "Values" : [
+            "app_info"
+          ],
+          "FieldName" : "name",
+          "FieldType" : "STRING"
+        }
+      ]
+    },
+    {
+      "Content" : [
+        {
+          "FieldName" : "REQRATE",
+          "FieldType" : "NUMBER",
+          "Range": {
+          	"minValue":0
+          }
+        },
+        {
+          "FieldName" : "RESP_TIME",
+          "FieldType" : "NUMBER",
+          "Range": {
+          	"minValue":0
+          }
+        },
+        {
+          "FieldName" : "MAX_RSPTIME",
+          "FieldType" : "NUMBER",
+          "Range": {
+          	"minValue":0
+          }
+        }
+        
+      ],
+      "FieldName" : "metrics",
+      "FieldType" : "JSONOBJECT"
+    }
+  ]
+}
