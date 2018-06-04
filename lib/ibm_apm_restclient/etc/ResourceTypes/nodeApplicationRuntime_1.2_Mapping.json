@@ -98,10 +98,10 @@
       {
         "set": ["$odiAttribute *eq loopCpuUser",
         "$odiLabel *eq Loop CPU User",
-        "$odiDescription *eq The percentage of 1 CPU used by the event loop thread in user code  last interval",
+        "$odiDescription *eq The percentage of 1 CPU used by the event loop thread in user code last interval",
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
-        "$useUnits *eq cpu"],
+        "$useUnits *eq percent"],
         "when": "$odiObject *eq loop *and $odiAttribute *eq loopCpuUser"
       },
       {
@@ -110,7 +110,7 @@
         "$odiDescription *eq The percentage of 1 CPU used by the event loop thread in system code in the last interval",
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
-        "$useUnits *eq cpu",
+        "$useUnits *eq percent",
         "$odiEnums *eq true"],
         "when": "$odiObject *eq loop *and $odiAttribute *eq loopCpuSystem"
       }],
@@ -427,5 +427,5 @@
   "uniqueId": "metadata\/\/1.2\/resourcemaps\/resourcemap\/nodeApplicationRuntime",
   "tags": ["mapping",
   "topLevelResource"],
-  "timestamp": "2018-05-16T11:28:10.021+08:00"
+  "timestamp": "2018-05-24T15:10:57.476+08:00"
 }

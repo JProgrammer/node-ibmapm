@@ -85,7 +85,7 @@
             "displaylabel": "Loop CPU User",
             "name": "Loop CPU User",
             "description": "The percentage of 1 CPU used by the event loop thread in user code last interval",
-            "units": "cpu",
+            "units": "percent",
             "tags": {
               "groupName": "loop"
             }
@@ -125,7 +125,7 @@
             "displaylabel": "Loop CPU System",
             "name": "Loop CPU System",
             "description": "The percentage of 1 CPU used by the event loop thread in system code in the last interval",
-            "units": "cpu",
+            "units": "percent",
             "tags": {
               "groupName": "loop"
             }
@@ -379,5 +379,5 @@
   "uniqueId": "metadata//1.2/resourcetypes/resourcetype/nodeApplicationRuntime",
   "tags": ["metadata",
   "topLevelResource"],
-  "timestamp": "2018-05-16T11:28:10.019+08:00"
+  "timestamp": "2018-05-24T15:10:57.473+08:00"
 }
