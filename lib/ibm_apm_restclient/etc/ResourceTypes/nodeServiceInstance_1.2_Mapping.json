@@ -81,7 +81,7 @@
         "$odiLabel *eq Slowest Response Time",
         "$odiDescription *eq The slowest response time at the latest sampling interval.",
         "$fieldOutput *eq metric",
-        "$odiDataType *eq int",
+        "$odiDataType *eq double",
         "$useUnits *eq milliseconds"],
         "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq slowestResponseTime"
       },
@@ -448,6 +448,15 @@
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
         "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_postgresqlMaxRespTime"
+      },
+      {
+        "set": ["$odiAttribute *eq requestErrorRate",
+        "$odiLabel *eq Error Rate",
+        "$odiDescription *eq The error rate of application requests at the latest sampling interval",
+        "$fieldOutput *eq metric",
+        "$useUnits *eq percent",
+        "$odiDataType *eq double"],
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq requestErrorRate"
       }],
       "properties": [{
         "datatype": "string",
@@ -466,5 +475,5 @@
   "version": "1.2",
   "uniqueId": "metadata\/\/1.2\/resourcemaps\/resourcemap\/nodeServiceInstance",
   "tags": ["mapping"],
-  "timestamp": "2018-05-16T11:28:04.827+08:00"
+  "timestamp": "2018-07-12T11:40:24.997+08:00"
 }

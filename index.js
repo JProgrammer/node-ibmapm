@@ -3,17 +3,17 @@
 // Node module: ibmapm
 // This file is licensed under the Apache License 2.0.
 // License text available at https://opensource.org/licenses/Apache-2.0
-
-var log4js = require('log4js');
-var properties = require('properties');
-var fs = require('fs');
-var path = require('path');
 if (!global.NodeDCLoaded) {
     // The Node.js DC is not required.
     global.NodeDCLoaded = true;
 } else {
     return;
 }
+var log4js = require('log4js');
+var properties = require('properties');
+var fs = require('fs');
+var path = require('path');
+
 var appmetrics = global.Appmetrics || require('appmetrics');
 // var configsvc = require('./lib/tool/configureservice').ConfigureService;
 

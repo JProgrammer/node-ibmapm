@@ -48,7 +48,7 @@
         "service"
     ],
     "metadataVersion": "1.2",
-    "uniqueId": "metadata//1.2/resourcetypes/resourcetype/service",
+    "keyIndexName": "metadata//1.2/resourcetypes/resourcetype/service",
     "tags": [
         "metadata",
         "topLevelResource"

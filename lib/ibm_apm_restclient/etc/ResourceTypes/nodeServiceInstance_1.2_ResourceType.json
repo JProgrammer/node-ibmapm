@@ -33,7 +33,7 @@
       },
       "slowestResponseTime": {
         "displaylabel": "Slowest Response Time",
-        "dataType": "int",
+        "dataType": "double",
         "name": "Slowest Response Time",
         "description": "The slowest response time at the latest sampling interval.",
         "units": "milliseconds",
@@ -67,6 +67,16 @@
         "name": "Oracledb Slowest Response Time",
         "description": "The slowest response time at the latest sampling interval.",
         "units": "milliseconds",
+        "tags": {
+          "groupName": "nodeServiceInstance"
+        }
+      },
+      "requestErrorRate": {
+        "displaylabel": "Error Rate",
+        "dataType": "double",
+        "name": "Error Rate",
+        "description": "The error rate of application requests at the latest sampling interval",
+        "units": "percent",
         "tags": {
           "groupName": "nodeServiceInstance"
         }
@@ -468,5 +478,5 @@
   "metadataVersion": "1.2",
   "uniqueId": "metadata//1.2/resourcetypes/resourcetype/nodeServiceInstance",
   "tags": ["metadata"],
-  "timestamp": "2018-05-16T11:28:04.785+08:00"
+  "timestamp": "2018-07-12T11:40:24.987+08:00"
 }
