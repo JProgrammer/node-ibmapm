@@ -1,17 +1,17 @@
 {
   "doctype": "mapping",
-  "productCode": "KDN",
+  "productCode": "LWDC",
   "extraData": {
     "entity-properties": [],
     "resource-properties": {
       "relationships": [],
       "members": [{
         "metricIntervals": "1",
-        "use": "nodeDCApplication",
+        "use": "nodeServiceInstance",
         "keys": "",
-        "when": "$odiObject *eq nodeDCApplication",
+        "when": "$odiObject *eq nodeServiceInstance",
         "propertyIntervals": "1",
-        "tableName": "nodeDCApplication"
+        "tableName": "nodeServiceInstance"
       }],
       "overrides": [{
         "set": ["$odiAttribute *eq resourceID",
@@ -23,7 +23,7 @@
         "$odiDataType *eq string",
         "$enumIVal *eq Available",
         "$enumEVal *eq Not"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq resourceID"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq resourceID"
       },
       {
         "set": ["$odiAttribute *eq runtimeResourceID",
@@ -31,7 +31,7 @@
         "$odiDescription *eq The runtime resource ID.",
         "$fieldOutput *eq property",
         "$odiDataType *eq string"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq runtimeResourceID"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq runtimeResourceID"
       },
       {
         "set": ["$odiAttribute *eq npmResourceID",
@@ -39,15 +39,15 @@
         "$odiDescription *eq The npm resource ID.",
         "$fieldOutput *eq property",
         "$odiDataType *eq string"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq npmResourceID"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq npmResourceID"
       },
       {
-        "set": ["$odiAttribute *eq applicationInstanceResourceID",
-        "$odiLabel *eq Application Instance Resource ID",
-        "$odiDescription *eq The a pplication instance resource ID.",
+        "set": ["$odiAttribute *eq serviceResourceID",
+        "$odiLabel *eq Service Resource ID",
+        "$odiDescription *eq The service resource ID.",
         "$fieldOutput *eq property",
         "$odiDataType *eq string"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq applicationInstanceResourceID"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq serviceResourceID"
       },
       {
         "set": ["$odiAttribute *eq _componentType",
@@ -56,7 +56,7 @@
         "$fieldRequired *eq true",
         "$fieldOutput *eq property",
         "$odiDataType *eq string"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq _componentType"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq _componentType"
       },
       {
         "set": ["$odiAttribute *eq requestRate",
@@ -65,7 +65,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq requestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq requestRate"
       },
       {
         "set": ["$odiAttribute *eq averageResponseTime",
@@ -74,61 +74,16 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq averageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq averageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq slowestResponseTime",
         "$odiLabel *eq Slowest Response Time",
         "$odiDescription *eq The slowest response time at the latest sampling interval.",
         "$fieldOutput *eq metric",
-        "$odiDataType *eq int",
-        "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq slowestResponseTime"
-      },
-      {
-        "set": ["$odiAttribute *eq cpuPercentage",
-        "$odiLabel *eq Processor Percent of Application",
-        "$odiDescription *eq The percentage of the processor that is used by the application.",
-        "$fieldOutput *eq metric",
         "$odiDataType *eq double",
-        "$useUnits *eq percent"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq cpuPercentage"
-      },
-      {
-        "set": ["$odiAttribute *eq memoryRssSize",
-        "$odiLabel *eq Physical Memory of Application",
-        "$odiDescription *eq The physical memory that is used by the application, in megabytes.",
-        "$fieldOutput *eq metric",
-        "$odiDataType *eq int",
-        "$useUnits *eq megabytes"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq memoryRssSize"
-      },
-      {
-        "set": ["$odiAttribute *eq memoryTotalSize",
-        "$odiLabel *eq Total Memory of Application",
-        "$odiDescription *eq The total amount of memory used by the Node.js application that cannot be shared with other processes, in Megabytes.",
-        "$fieldOutput *eq metric",
-        "$odiDataType *eq int",
-        "$useUnits *eq megabytes"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq memoryTotalSize"
-      },
-      {
-        "set": ["$odiAttribute *eq virtualMemory",
-        "$odiLabel *eq Virtual Memory of Application",
-        "$odiDescription *eq The virtual memory that is used by the application, in megabytes.",
-        "$fieldOutput *eq metric",
-        "$odiDataType *eq int",
-        "$useUnits *eq megabytes"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq virtualMemory"
-      },
-      {
-        "set": ["$odiAttribute *eq upTime",
-        "$odiLabel *eq Elapsed Time since Restart",
-        "$odiDescription *eq The time since the last restart.",
-        "$fieldOutput *eq metric",
-        "$odiDataType *eq string",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq upTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq slowestResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_socketioRequestRate",
@@ -137,7 +92,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_socketioRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_socketioRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_socketioAverageResponseTime",
@@ -147,7 +102,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_socketioAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_socketioAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_socketioMaxRespTime",
@@ -156,7 +111,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_socketioMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_socketioMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mysqlRequestRate",
@@ -165,7 +120,7 @@
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute",
         "$odiLabel *eq Mysql Request Rate"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mysqlRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mysqlRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mysqlAverageResponseTime",
@@ -175,7 +130,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mysqlAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mysqlAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mysqlMaxRespTime",
@@ -184,7 +139,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mysqlMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mysqlMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mongoRequestRate",
@@ -193,7 +148,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mongoRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mongoRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mongoAverageResponseTime",
@@ -203,7 +158,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mongoAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mongoAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mongoMaxRespTime",
@@ -212,7 +167,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mongoMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mongoMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mqttRequestRate",
@@ -221,7 +176,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mqttRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mqttRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mqttAverageResponseTime",
@@ -231,7 +186,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mqttAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mqttAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mqttMaxRespTime",
@@ -240,7 +195,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mqttMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mqttMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mqlightRequestRate",
@@ -249,7 +204,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mqlightRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mqlightRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mqlightAverageResponseTime",
@@ -259,7 +214,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mqlightAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mqlightAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_mqlightMaxRespTime",
@@ -268,7 +223,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_mqlightMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_mqlightMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_leveldbRequestRate",
@@ -277,7 +232,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_leveldbRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_leveldbRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_leveldbAverageResponseTime",
@@ -287,7 +242,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_leveldbAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_leveldbAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_leveldbMaxRespTime",
@@ -296,7 +251,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_leveldbMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_leveldbMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_redisRequestRate",
@@ -305,7 +260,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_redisRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_redisRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_redisAverageResponseTime",
@@ -315,7 +270,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_redisAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_redisAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_redisMaxRespTime",
@@ -324,7 +279,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_redisMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_redisMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_riakRequestRate",
@@ -333,7 +288,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_riakRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_riakRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_riakAverageResponseTime",
@@ -343,7 +298,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_riakAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_riakAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_riakMaxRespTime",
@@ -352,7 +307,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_riakMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_riakMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_memcachedRequestRate",
@@ -361,7 +316,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_memcachedRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_memcachedRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_memcachedAverageResponseTime",
@@ -371,7 +326,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_memcachedAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_memcachedAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_memcachedMaxRespTime",
@@ -380,7 +335,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_memcachedMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_memcachedMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_oracledbRequestRate",
@@ -389,7 +344,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_oracledbRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_oracledbRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_oracledbAverageResponseTime",
@@ -399,7 +354,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_oracledbAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_oracledbAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_oracledbMaxRespTime",
@@ -408,7 +363,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_oracledbMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_oracledbMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_oracleRequestRate",
@@ -417,7 +372,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_oracleRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_oracleRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_oracleAverageResponseTime",
@@ -427,7 +382,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_oracleAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_oracleAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_oracleMaxRespTime",
@@ -436,7 +391,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_oracleMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_oracleMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_strongoracleRequestRate",
@@ -445,7 +400,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_strongoracleRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_strongoracleRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_strongoracleAverageResponseTime",
@@ -455,7 +410,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_strongoracleAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_strongoracleAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_strongoracleMaxRespTime",
@@ -464,7 +419,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_strongoracleMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_strongoracleMaxRespTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_postgresqlRequestRate",
@@ -473,7 +428,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq double",
         "$useUnits *eq requests\/minute"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_postgresqlRequestRate"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_postgresqlRequestRate"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_postgresqlAverageResponseTime",
@@ -483,7 +438,7 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_postgresqlAverageResponseTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_postgresqlAverageResponseTime"
       },
       {
         "set": ["$odiAttribute *eq reqSummary_postgresqlMaxRespTime",
@@ -492,43 +447,16 @@
         "$fieldOutput *eq metric",
         "$odiDataType *eq int",
         "$useUnits *eq milliseconds"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq reqSummary_postgresqlMaxRespTime"
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq reqSummary_postgresqlMaxRespTime"
       },
       {
-        "set": ["$odiAttribute *eq sysCpuPercentage",
-        "$odiLabel *eq Processor Percent of System",
-        "$odiDescription *eq The percentage of CPU used by the system as a whole. This is a value between 0.0 and 1.0.",
+        "set": ["$odiAttribute *eq requestErrorRate",
+        "$odiLabel *eq Error Rate",
+        "$odiDescription *eq The error rate of application requests at the latest sampling interval",
         "$fieldOutput *eq metric",
-        "$odiDataType *eq double",
-        "$useUnits *eq percent"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq sysCpuPercentage"
-      },
-      {
-        "set": ["$odiAttribute *eq sysMemoryAll",
-        "$odiLabel *eq Total Memory of System",
-        "$odiDescription *eq The total amount of RAM available on the system in Megabytes.",
-        "$fieldOutput *eq metric",
-        "$odiDataType *eq int",
-        "$useUnits *eq megabytes"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq sysMemoryAll"
-      },
-      {
-        "set": ["$odiAttribute *eq sysMemoryUsed",
-        "$odiLabel *eq Used Memory of System",
-        "$odiDescription *eq The total amount of RAM in use on the system in Megabytes.",
-        "$fieldOutput *eq metric",
-        "$odiDataType *eq int",
-        "$useUnits *eq megabytes"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq sysMemoryUsed"
-      },
-      {
-        "set": ["$odiAttribute *eq sysMemoryFree",
-        "$odiLabel *eq Free Memory of System",
-        "$odiDescription *eq The total amount of free RAM available on the system in Megabytes.",
-        "$fieldOutput *eq metric",
-        "$odiDataType *eq int",
-        "$useUnits *eq megabytes"],
-        "when": "$odiObject *eq nodeDCApplication *and $odiAttribute *eq sysMemoryFree"
+        "$useUnits *eq percent",
+        "$odiDataType *eq double"],
+        "when": "$odiObject *eq nodeServiceInstance *and $odiAttribute *eq requestErrorRate"
       }],
       "properties": [{
         "datatype": "string",
@@ -539,12 +467,13 @@
       }]
     }
   },
-  "displaylabel": "Node DC Application",
-  "description": "Node.js application and status information, like file name, path, port and cluster.",
-  "entityTypes": ["application"],
+  "displaylabel": "Node DC Service Instance",
+  "description": "Node.js service and status information",
+  "entityTypes": ["nodeServiceInstance"],
   "source": "Collector",
-  "type": "nodeDCApplication",
+  "type": "nodeServiceInstance",
   "version": "1.2",
-  "uniqueId": "metadata\/\/1.2\/resourcemaps\/resourcemap\/nodeDCApplication",
-  "tags": ["mapping"]
+  "uniqueId": "metadata\/\/1.2\/resourcemaps\/resourcemap\/nodeServiceInstance",
+  "tags": ["mapping"],
+  "timestamp": "2018-07-12T11:40:24.997+08:00"
 }

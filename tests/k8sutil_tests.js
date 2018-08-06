@@ -15,7 +15,6 @@ tap.test('k8sutil.', function(t) {
     var isicp = k8sutil.isICP();
     t.ok(!isicp, 'Is not a ICp env.');
 
-    k8sutil.checkIngressUrl();
     k8sutil.getIngressUrl();
     k8sutil.getContainerID();
     k8sutil.getContainerDetail();
